@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados nome...</title>
+    <style>
+      body {
+        background-color: #b2b2ff;
+        color: white;
+        font: normal 20pt Arial;
+      }
+      h1 {
+        color: rgb(247, 220, 68);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, mundo!</h1>
+    <p>To bem!</p>
+    <script>
+      var nome = window.prompt("Qual seu nome: ");
+      window.alert("É um grande prazer te conhecer, " + nome);
+
+      var anoNascimento = window.prompt("Quando você nasceu?");
+      var anoAtual = window.prompt("Que ano estamos?");
+      if (anoNascimento < anoAtual) {
+        var idade = anoAtual - anoNascimento; //com menos (-) ele faz a conta corretamente
+                                              // com  mais (+) ele concatena
+        window.alert("Então sua idade é: " + idade);
+      }else{
+        window.alert("Sua data de nascimento não pode ser maior que o ano atual!");
+      }
+        //placeholder em js
+
+        alert(`${nome} nascido em ${anoNascimento}, no ano de ${anoAtual} tem ${idade}`);
+    </script>
+  </body>
+</html>

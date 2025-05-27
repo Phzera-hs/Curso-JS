@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo imc</title>
+</head>
+<body>
+    <h2 id="txt"></h2>
+    <script>
+        var texto = document.getElementById('txt');
+        var altura = (prompt('Qual sua altura? em M'));
+        var peso = (prompt('E seu peso? em Kg'));
+
+        var IMC = (peso/(altura*altura));
+
+        var isImc = confirm('Você quer ver seu imc?');
+
+        if(isImc){
+            texto.innerHTML = `Seu IMC é ${IMC.toFixed(2)}`;
+        }else{
+            texto.innerHTML = `Você não quis ver seu IMC`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brincando com o DOM</title>
+  </head>
+  <body>
+    <h1 id="titleSuper">Brincando com DOM</h1>
+
+    <h2>Podemos pegar todas as tags com:</h2>
+    <h3></h3>
+    <hr />
+    <h2>Podemos pegar todas as classes com:</h2>
+    <h3 class="classe"></h3>
+    <hr />
+    <h2>Podemos pegar o id com:</h2>
+    <h3 id="id"></h3>
+    <hr />
+    <h3 id="isCss"></h3>
+
+    <script>
+      var TitleSuper = document.getElementById("titleSuper");
+      TitleSuper.style.fontSize = "50px";
+      TitleSuper.style.fontFamily = "Verdana";
+      TitleSuper.style.color = "#9003fc";
+
+      var body = document.querySelector("body");
+      body.style.backgroundColor = "black";
+
+      var tags = document.getElementsByTagName("h3")[0];
+      tags.innerHTML += `<i>getElementsByTagName</i><br>E passando o index dela com [x] 
+      e um valor inteiro no lugar de x, começando pelo zero`;
+      tags.style.color = "red";
+
+      var classes = document.getElementsByClassName("classe")[0];
+      classes.innerHTML += `<i>getElementsByClassName</i><br>Passando o index também`;
+      classes.style.color = "blue";
+
+      var id = document.getElementById("id");
+      id.innerHTML = `<i>getElementById</i><br>Diferente das ultimas duas, aqui não se passa o index
+      <br>E para saber se pega o index ou não, olhe a palavra element, se tiver no plural, passe o index desejado`;
+      id.style.color = "#ffdb58";
+
+      var all = document.querySelectorAll("h2");
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.color = "white";
+      }
+
+      var h3s = document.querySelectorAll("h3");
+      var h3Last = h3s[h3s.length - 1]; 
+      h3Last.innerHTML = `<i>querySelectorAll</i><br>Mais um laço for para pegar todos os index e mudar a cor para branco`;
+      h3Last.style.color = "green"; 
+
+      var isCssFalse = document.getElementById('isCss');
+    isCssFalse.innerHTML = `Esse arquivo não tem css...`      
+    isCssFalse.style.color = "gray"
+
+    </script>
+  </body>
+</html>

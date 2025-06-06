@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f5f5f5;
+}
+
+#corpo {
+    background-color: rgb(145, 145, 145);
+    width: 220px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 40px auto;
+}
+
+p {
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 255, 28);
+    margin: 0;
+}
+
+#display {
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    text-align: right;
+    background-color: #fff;
+    border: none;
+    padding: 5px;
+}
+
+#teclado {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+#teclado button {
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#teclado button:hover {
+    background-color: #adadad;
+}
+
+.operator {
+    background-color: #f0ad4e !important;
+    color: rgb(187, 25, 25);
+}
+
+.operator:hover {
+    background-color: #be893e !important;
+}
+
+#btnEqual {
+    grid-column: span 2;     
+    height: 50px;             
+    font-size: 20px;
+    background-color: #5cb85c !important;
+    color: white;
+}
+#btnEqual:hover {
+    background-color: #438b43 !important;
+
+}
+#btnClear {
+    background-color: #d9534f !important;
+    color: rgb(255, 187, 187);
+}
+#btnClear:hover {
+    background-color: #b93733 !important;
+}

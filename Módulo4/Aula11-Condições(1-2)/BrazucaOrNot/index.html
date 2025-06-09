@@ -4,18 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrazucaVerifica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #0055aa;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Brazuca Verificador 2000
-    </h1>
-    Nacionalidade:
-    <input type="text" name="isgringo" id="isbrazuca">
-    <button id="verificaBnt">Verificar</button>
+    <h1>Brazuca Verificador 2000</h1>
+    <label for="isbrazuca">Nacionalidade:</label>
+    <input type="text" name="isbrazuca" id="isbrazuca">
+    <button id="verificaBnt" onclick="verify()">Verificar</button>
+    <p></p>
+
     <script>
-        var passaporte = document.getElementById("isbrazuca").value;
-        if(passaporte == "brasileiro"){
-            
+        function verify() {
+            var passaporte = document.getElementById("isbrazuca").value;
+            var txtNacionalidade = document.querySelector('p');
+
+            if (passaporte.trim().toLowerCase() === "brasileiro") {
+                txtNacionalidade.innerHTML = `É brasileiro`;
+            } else {
+                txtNacionalidade.innerHTML = `É ${passaporte}`;
+            }
         }
     </script>
 </body>

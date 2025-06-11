@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de hora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <form onsubmit="sendInfo(event)">
+                <label for="idade">Ano de nascimento:</label>
+                <input type="date" id="idade">
+                <br>
+                <label for="sexo">Sexo:</label>
+
+                <label class="sexoLabel" for="sexo">Masculino</label>
+                <input type="radio" name="sexo" id="men" class="sexo" value="Masculino">
+                
+                <label class="sexoLabel" for="sexo">Feminino</label>
+                <input type="radio" name="sexo" id="woman" class="sexo" value="Feminino">
+                <br>
+                <button type="submit">Vericar</button>
+            </form>
+        </div>
+        <div id="saudacoes">
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Exercicio com Gustavo Guanabara</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

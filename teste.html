@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini DOOM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#gameArea {
+  position: relative;
+}
+
+#gameCanvas {
+  border: 2px solid #fff;
+  background-color: #000;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <canvas id="gameCanvas"></canvas>
+    <div id="score">Pontos: 0</div>
+  </div>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+const scoreEl = document.getElementById("score");
+
+canvas.width = 500;
+canvas.height = 700;
+
+let enemies = [];
+let bullets = [];
+let score = 0;
+let player = { x: canvas.width / 2, y: canvas.height - 30, width: 30, height: 30 };
+
+function startGame() {
+  score = 0;
+  enemies = [];
+  bullets = [];
+  scoreEl.textContent = `Pontos: ${score}`;
+  gameLoop();
+}
+
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawPlayer();
+  moveBullets();
+  moveEnemies();
+  checkCollisions();
+  requestAnimationFrame(gameLoop);
+}
+
+function drawPlayer() {
+  ctx.fillStyle = "green";
+  ctx.fillRect(player.x, player.y, player.width, player.height);
+}
+
+function moveBullets() {
+  bullets.forEach((bullet, index) => {
+    bullet.y -= bullet.speed;
+    ctx.fillStyle = "red";
+    ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+    if (bullet.y < 0) bullets.splice(index, 1);
+  });
+}
+
+function moveEnemies() {
+  if (Math.random() < 0.02) {
+    let x = Math.random() * (canvas.width - 30);
+    enemies.push({ x: x, y: 0, width: 30, height: 30, speed: 2 });
+  }
+  enemies.forEach((enemy, index) => {
+    enemy.y += enemy.speed;
+    ctx.fillStyle = "blue";
+    ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+    if (enemy.y > canvas.height) enemies.splice(index, 1);
+  });
+}
+
+function checkCollisions() {
+  bullets.forEach((bullet, bIndex) => {
+    enemies.forEach((enemy, eIndex) => {
+      if (
+        bullet.x < enemy.x + enemy.width &&
+        bullet.x + bullet.width > enemy.x &&
+        bullet.y < enemy.y + enemy.height &&
+        bullet.y + bullet.height > enemy.y
+      ) {
+        score++;
+        scoreEl.textContent = `Pontos: ${score}`;
+        bullets.splice(bIndex, 1);
+        enemies.splice(eIndex, 1);
+      }
+    });
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" && player.x > 0) player.x -= 15;
+  if (e.key === "ArrowRight" && player.x < canvas.width - player.width) player.x += 15;
+  if (e.key === " " || e.key === "ArrowUp") {
+    bullets.push({ x: player.x + player.width / 2 - 2.5, y: player.y, width: 5, height: 10, speed: 5 });
+  }
+});
+
+startGame();
+
+  </script>
+</body>
+</html>

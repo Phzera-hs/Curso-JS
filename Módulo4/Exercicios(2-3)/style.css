@@ -1,0 +1,112 @@
+body{
+    background: rgb(105, 105, 184);
+    font: normal 15pt Arial;
+}
+
+header{
+    color: white;
+    text-align: center;
+}
+
+section{
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.511);
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+
+}
+
+form{
+    margin-top: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+label{
+    font-weight: bolder;
+}
+.sexoLabel{
+    font-weight: normal !important;
+}
+
+input#idade{
+    height: 20px;
+}
+
+#verify{
+    width: 70px;
+    height: 50px;
+    font-weight: bold;
+}
+
+/* Melhoria visual no botão */
+button {
+    padding: 10px 20px;
+    background-color: #4e4ef7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #2d2dc9;
+}
+
+/* Estilo para inputs e radios */
+input[type="date"],
+input[type="number"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 5px;
+    border-color:#ff0000;
+}
+
+/* Espaçamento entre os elementos */
+form label,
+form input {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Mensagem de resultado */
+#saudacoes p {
+    font-size: 16pt;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #b0b3ba;
+    border-left: 5px solid #4e4ef7;
+    border-radius: 5px;
+
+}
+
+/* Responsividade básica */
+@media screen and (max-width: 600px) {
+    section {
+        width: 90%;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
